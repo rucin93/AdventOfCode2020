@@ -4,7 +4,9 @@ const entries = getLinesFromFile(`${__dirname}/input.txt`)
 
 const lines = entries.length
 
-const checkGrid = (x: number, y :number) :number => {
+console.log(checkGrid(1,3))
+
+export function checkGrid (x: number, y :number) :number {
     const grid = []
     for (let i = 0; i < x * lines; i++) {
         grid[i] = ''.padStart( y * lines, entries[i])
@@ -20,9 +22,3 @@ const checkGrid = (x: number, y :number) :number => {
 
     return counter
 }
-
-export {
-    checkGrid
-}
-
-console.log(checkGrid(1,3))
