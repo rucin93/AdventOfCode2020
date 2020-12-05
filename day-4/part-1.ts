@@ -1,21 +1,9 @@
 import { getLinesFromFile } from '../utils'
+import { parsePassports } from './passport'
 
-const entries = getLinesFromFile(`${__dirname}/input.txt`, `
+const entries = getLinesFromFile(`${__dirname}/input.txt`, `\n\n`)
+const requiredKeys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
-`)
-let counter = 0
+const validPassports = parsePassports(entries, requiredKeys)
 
-entries.forEach(entry => {
-    const data = {}
-    entry.replace(/\n/g, ' ').split(' ').forEach(item => {
-        const [key, val] = item.split(':')
-        data[key] = val
-    })
-
-    if (Object.keys(data).length > (data['cid'] ? 7 : 6)) {
-        counter++
-    }
-
-})
-
-console.log(counter)
+console.log(validPassports.length)

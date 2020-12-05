@@ -1,44 +1,37 @@
-import {getLinesFromFile} from '../utils'
+import { getLinesFromFile } from '../utils'
+import { parsePassports, validatePassport } from './passport'
 
-const entries = getLinesFromFile(`${__dirname}/input.txt`, `
+const entries = getLinesFromFile(`${__dirname}/input.txt`, `\n\n`)
+const requiredKeys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
-`)
-let counter = 0
-
-const checkValidity = data => {
-    if ((data.byr > 1919) && (data.byr < 2003)) {
-        if ((data.iyr > 2009) && (data.iyr < 2021)) {
-            if ((data.eyr > 2019) && (data.eyr < 2031)) {
-                const [height, type] = data.hgt.split(/(cm|in)/)
-                if (((type == 'cm') && (height > 149) && (height < 194)) || ((type == 'in') && (height > 55) && (height < 76))) {
-                    if ((data.hcl[0] === '#') && (data.hcl.replace(/[^0-9a-f]/g, '').length === 6)) {
-                        if (['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'].indexOf(data.ecl) !== -1) {
-                            if (data.pid.length === 9) {
-                                return true
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    return false
+const inRange = (min: number, value: number, max: number): boolean => {
+    return value >= min && value <= max
 }
 
-entries.forEach(entry => {
-    const data = {}
-    entry.replace(/\n/g, ' ').split(' ').forEach(item => {
-        const [key, val] = item.split(':')
-        data[key] = val
-    })
+const policies = {
+    byr: value => inRange(1920, +value, 2002),
+    iyr: value => inRange(2010, +value, 2020),
+    eyr: value => inRange(2020, +value, 2030),
+    hgt: value => {
+        const [height, type] = value.split(/(cm|in)/)
 
-    if (Object.keys(data).length > (data['cid'] ? 7 : 6)) {
-        if (checkValidity(data)) {
-            counter++
+        if (type === 'cm') {
+            return inRange(150, +height, 193)
+        } else if (type === 'in') {
+            return inRange(59, +height, 76)
         }
-    }
 
-})
+        return false
+    },
+    hcl: value => value.match(/^#[0-9a-f]{6}$/),
+    ecl: value => {
+        return ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'].includes(value)
+    },
+    pid: value => value.length === 9
+}
 
-console.log(counter)
+const validPassports = parsePassports(entries, requiredKeys).filter(passport =>
+    validatePassport(passport, policies)
+)
+
+console.log(validPassports.length)

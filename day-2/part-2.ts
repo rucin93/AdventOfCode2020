@@ -1,4 +1,4 @@
-import {getLinesFromFile} from '../utils'
+import { getLinesFromFile } from '../utils'
 
 const entries = getLinesFromFile(`${__dirname}/input.txt`)
 

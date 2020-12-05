@@ -10,11 +10,11 @@ for (let i = 0; i < entries.length; i++) {
 
     let letterCount = 0
     for (let c of pass) {
-      // letter[0] - because letter contains ":" at [1]
+        // letter[0] - because letter contains ":" at [1]
         if (c === letter[0]) letterCount++
     }
 
-    if ((from <= letterCount) && (letterCount <= to)) counter++
+    if (from <= letterCount && letterCount <= to) counter++
 }
 
 console.log(counter)
