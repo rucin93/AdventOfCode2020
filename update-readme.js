@@ -2,38 +2,50 @@ const fs = require('fs')
 const axios = require('axios')
 const createTable = require('markdown-table')
 const consola = require('consola')
-const dayNr = parseInt(process.argv[2])
 
 const updateTable = dayNr =>
     axios(`https://adventofcode.com/2020/day/${dayNr}`).then(res => {
         const title = res.data.match(/--- Day \d*: (.*) ---/)[1]
-        fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
 
-        const data = fs
-            .readFileSync('./puzzle-names.txt')
-            .toString()
-            .split('\n')
-            .slice(0, -1)
-            .map(line => line.split('|'))
-
-        const table = createTable(
-            [
-                ['Day', 'Quest', 'Part 1', 'Part 2'],
-                ...data.map((title, index) => [
-                    index + 1,
-                    `[${title}][${index + 1}]`,
-                    ':star:',
-                    ':star:'
-                ]),
-                [dayNr + 1, 'Coming soon...']
-            ],
-            { align: ['c', 'c', 'c', 'c'] }
-        )
-
-        const links = []
-        for (let i = 1; i <= dayNr; i++) {
-            links.push(`[${i}]: https://adventofcode.com/2020/day/${i}`)
+        return {
+            day: dayNr,
+            title,
+            link: `[${dayNr}]: https://adventofcode.com/2020/day/${dayNr}`
         }
+    })
+
+const appendDay = title => fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
+const prepareTable = (data, dayNr) =>
+    createTable(
+        [
+            ['Day', 'Quest', 'Part 1', 'Part 2'],
+            ...data.map((title, index) => [
+                index + 1,
+                `[${title}][${index + 1}]`,
+                ':star:',
+                ':star:'
+            ]),
+            [dayNr + 1, 'Coming soon...']
+        ],
+        { align: ['c', 'c', 'c', 'c'] }
+    )
+
+fs.writeFileSync('./puzzle-names.txt', '')
+fs.writeFileSync('./README.md', '')
+
+axios(`https://adventofcode.com/2020`).then(res => {
+    const data = res.data
+        .match(/\/2020\/day\/(\d*)/g)
+        .map(el => parseInt(el.replace(/\/2020\/day\//g, '')))
+    Promise.all(data.map(day => updateTable(day))).then(elements => {
+        const titleMap = elements.map(item => item.title)
+        const links = elements.map(item => item.link)
+
+        titleMap.forEach(title => {
+            appendDay(title)
+        })
+
+        const table = prepareTable(titleMap, titleMap.length)
 
         fs.writeFileSync(
             './README.md',
@@ -59,13 +71,8 @@ ${links.join('\n')}
 `
         )
     })
-
-const days = fs.readFileSync('./puzzle-names.txt').toString().split('\n')
-
-updateTable(dayNr || days.length)
-    .then(() => {
-        consola.success('Table updated!')
-    })
-    .catch(err => {
-        consola.error(err)
-    })
+}).then(()=> {
+  consola.success('README.md generated succesfully')
+}).catch(error => {
+  consola.error(error)
+})
