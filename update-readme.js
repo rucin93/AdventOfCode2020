@@ -14,7 +14,6 @@ const updateTable = dayNr =>
         }
     })
 
-const appendDay = title => fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
 const prepareTable = (data, dayNr) =>
     createTable(
         [
@@ -33,27 +32,26 @@ const prepareTable = (data, dayNr) =>
 fs.writeFileSync('./puzzle-names.txt', '')
 fs.writeFileSync('./README.md', '')
 
-axios(`https://adventofcode.com/2020`).then(res => {
-    const data = res.data
-        .match(/\/2020\/day\/(\d*)/g)
-        .map(el => parseInt(el.replace(/\/2020\/day\//g, '')))
-    Promise.all(data.map(day => updateTable(day))).then(elements => {
-        const titleMap = elements.map(item => item.title)
-        const links = elements.map(item => item.link)
+axios(`https://adventofcode.com/2020`)
+    .then(res => {
+        const data = res.data
+            .match(/\/2020\/day\/(\d*)/g)
+            .map(el => parseInt(el.replace(/\/2020\/day\//g, '')))
+        Promise.all(data.map(day => updateTable(day))).then(elements => {
+            const titleMap = elements.map(item => item.title)
+            const links = elements.map(item => item.link)
 
-        titleMap.forEach(title => {
-            appendDay(title)
-        })
+            titleMap.forEach(title => {
+              fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
+            })
 
-        const table = prepareTable(titleMap, titleMap.length)
-
-        fs.writeFileSync(
-            './README.md',
-            `# Advent of Code
+            fs.writeFileSync(
+                './README.md',
+                `# Advent of Code
 Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScript
 
 ## Stars
-${table}
+${prepareTable(titleMap, titleMap.length)}
 
 
 ## How to run?
@@ -69,10 +67,12 @@ npm run start <day-nr> <part-nr>
 
 ${links.join('\n')}
 `
-        )
+            )
+        })
     })
-}).then(()=> {
-  consola.success('README.md generated succesfully')
-}).catch(error => {
-  consola.error(error)
-})
+    .then(() => {
+        consola.success('README.md generated succesfully')
+    })
+    .catch(error => {
+        consola.error(error)
+    })
