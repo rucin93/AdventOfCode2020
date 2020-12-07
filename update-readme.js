@@ -42,7 +42,7 @@ axios(`https://adventofcode.com/2020`)
             const links = elements.map(item => item.link)
 
             titleMap.forEach(title => {
-              fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
+                fs.appendFileSync('./puzzle-names.txt', `${title}\n`)
             })
 
             fs.writeFileSync(
