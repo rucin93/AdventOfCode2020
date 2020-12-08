@@ -14,3 +14,7 @@ export function getNumbersFromFile(file: string): number[] {
 export function add(a: number, b: number): number {
     return a + b
 }
+
+export function deepClone<Type>(target: Type): Type {
+    return JSON.parse(JSON.stringify(target))
+}
