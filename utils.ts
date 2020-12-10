@@ -18,3 +18,7 @@ export function add(a: number, b: number): number {
 export function deepClone<Type>(target: Type): Type {
     return JSON.parse(JSON.stringify(target))
 }
+
+export function asc(a: number, b: number): number {
+    return a - b
+}
