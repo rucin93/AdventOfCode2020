@@ -41,22 +41,25 @@ export function getItem(state: string[][], x: number, y: number): string {
     return (state[y] || [])[x] || FLOOR
 }
 
-const process = (state: string[][], x:number, y:number) => {
-  return ([dx, dy]) => {
-    let steps = 1
+const process = (state: string[][], x: number, y: number) => {
+    return ([dx, dy]) => {
+        let steps = 1
 
-    while (true) {
-      const [a, b] = [x + dx * steps, y + dy * steps]
+        while (true) {
+            const [a, b] = [x + dx * steps, y + dy * steps]
 
-      if (!state[b] || !state[b][b]) return FLOOR
-      if (state[b][a] !== FLOOR) return state[b][a]
+            if (!state[b] || !state[b][b]) return FLOOR
+            if (state[b][a] !== FLOOR) return state[b][a]
 
-      steps++
+            steps++
+        }
     }
-  }
 }
 
-export function getAdjacsent(state: string[][], cb: (column:string, length:number) => string): string[][] {
+export function getAdjacsent(
+    state: string[][],
+    cb: (column: string, length: number) => string
+): string[][] {
     return iteration(state, ({ x, y, column }) => {
         const occupied = adjastentsHelper
             .map(([dx, dy]) => getItem(state, x - dx, y - dy))
@@ -66,14 +69,17 @@ export function getAdjacsent(state: string[][], cb: (column:string, length:numbe
     })
 }
 
-export function getAdjacsentSee(state: string[][], cb: (column:string, length:number) => string): string[][] {
-  return iteration(state, ({ x, y, column }) => {
-    const occupied = adjastentsHelper
-      .map(process(state, x, y))
-      .filter(seat => seat === TAKEN).length
+export function getAdjacsentSee(
+    state: string[][],
+    cb: (column: string, length: number) => string
+): string[][] {
+    return iteration(state, ({ x, y, column }) => {
+        const occupied = adjastentsHelper
+            .map(process(state, x, y))
+            .filter(seat => seat === TAKEN).length
 
-    return cb(column, occupied)
-  })
+        return cb(column, occupied)
+    })
 }
 
 export function countItems(entries: string[][], item: string): number {

@@ -12,8 +12,8 @@ while (printGrid(last) !== printGrid(current)) {
     last = current
     current = getAdjacsent(current, (column, length) => {
         return column === EMPTY && length === 0
-          ? TAKEN
-          : column === TAKEN && length >= 4
+            ? TAKEN
+            : column === TAKEN && length >= 4
             ? EMPTY
             : column
     })
