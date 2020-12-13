@@ -3,8 +3,8 @@ import { getLinesFromFile } from '../utils'
 const calc = (id, ts) => id - (ts % id)
 const entries = getLinesFromFile(`${__dirname}/input.txt`)
 
-let ts = parseInt(entries[0])
-let ids = entries[1]
+const ts = parseInt(entries[0])
+const ids = entries[1]
     .split(',')
     .map(Number)
     .filter(e => !isNaN(e))
