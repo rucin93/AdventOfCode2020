@@ -14,10 +14,11 @@ Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScrip
 |  8  |   [Handheld Halting][8]  | :star: | :star: |
 |  9  |    [Encoding Error][9]   | :star: | :star: |
 |  10 |    [Adapter Array][10]   | :star: | :star: |
-|  11 |   [Seating System][11]   | :star: | :star: |
-|  12 |   [Shuttle Search][12]   | :star: | :star: |
-|  13 |      [Rain Risk][13]     | :star: | :star: |
-|  14 |      Coming soon...      |        |        |
+|  11 |    [Docking Data][11]    | :star: | :star: |
+|  12 |   [Seating System][12]   | :star: | :star: |
+|  13 |   [Shuttle Search][13]   | :star: | :star: |
+|  14 |      [Rain Risk][14]     | :star: | :star: |
+|  15 |      Coming soon...      |        |        |
 
 
 ## How to run?
@@ -41,6 +42,7 @@ npm run start <day-nr> <part-nr>
 [8]: https://adventofcode.com/2020/day/8
 [9]: https://adventofcode.com/2020/day/9
 [10]: https://adventofcode.com/2020/day/10
+[14]: https://adventofcode.com/2020/day/14
 [11]: https://adventofcode.com/2020/day/11
 [13]: https://adventofcode.com/2020/day/13
 [12]: https://adventofcode.com/2020/day/12
