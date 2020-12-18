@@ -12,14 +12,17 @@ Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScrip
 |  6  |      [Custom Customs][6]      | :star: | :star: |
 |  7  |     [Handy Haversacks][7]     | :star: | :star: |
 |  8  |     [Handheld Halting][8]     | :star: | :star: |
-|  9  |      [Encoding Error][9]      | :star: | :star: |
-|  10 | [Rambunctious Recitation][10] | :star: | :star: |
-|  11 |      [Adapter Array][11]      | :star: | :star: |
-|  12 |       [Docking Data][12]      | :star: | :star: |
-|  13 |      [Seating System][13]     | :star: | :star: |
-|  14 |      [Shuttle Search][14]     | :star: | :star: |
-|  15 |        [Rain Risk][15]        | :star: | :star: |
-|  16 |         Coming soon...        |        |        |
+|  9  |       [Conway Cubes][9]       | :star: | :star: |
+|  10 |      [Encoding Error][10]     | :star: | :star: |
+|  11 |    [Ticket Translation][11]   | :star: | :star: |
+|  12 |     [Operation Order][12]     | :star: | :star: |
+|  13 | [Rambunctious Recitation][13] | :star: | :star: |
+|  14 |      [Adapter Array][14]      | :star: | :star: |
+|  15 |       [Docking Data][15]      | :star: | :star: |
+|  16 |      [Seating System][16]     | :star: | :star: |
+|  17 |      [Shuttle Search][17]     | :star: | :star: |
+|  18 |        [Rain Risk][18]        | :star: | :star: |
+|  19 |         Coming soon...        |        |        |
 
 
 ## How to run?
@@ -41,7 +44,10 @@ npm run start <day-nr> <part-nr>
 [6]: https://adventofcode.com/2020/day/6
 [7]: https://adventofcode.com/2020/day/7
 [8]: https://adventofcode.com/2020/day/8
+[17]: https://adventofcode.com/2020/day/17
 [9]: https://adventofcode.com/2020/day/9
+[16]: https://adventofcode.com/2020/day/16
+[18]: https://adventofcode.com/2020/day/18
 [15]: https://adventofcode.com/2020/day/15
 [10]: https://adventofcode.com/2020/day/10
 [14]: https://adventofcode.com/2020/day/14
