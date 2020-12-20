@@ -38,8 +38,8 @@ axios(`https://adventofcode.com/2020`)
             .match(/\/2020\/day\/(\d*)/g)
             .map(el => parseInt(el.replace(/\/2020\/day\//g, '')))
         Promise.all(data.map(day => updateTable(day))).then(elements => {
-            const titleMap = elements.map(item => item.title)
-            const links = elements.map(item => item.link)
+            const titleMap = elements.sort((a,b)=>a.day-b.day).map(item => item.title)
+            const links = elements.sort((a,b)=>a.day-b.day).map(item => item.link)
 
             titleMap.forEach(title => {
                 fs.appendFileSync('./puzzle-names.txt', `${title}\n`)

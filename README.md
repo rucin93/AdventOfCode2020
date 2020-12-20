@@ -12,18 +12,18 @@ Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScrip
 |  6  |      [Custom Customs][6]      | :star: | :star: |
 |  7  |     [Handy Haversacks][7]     | :star: | :star: |
 |  8  |     [Handheld Halting][8]     | :star: | :star: |
-|  9  |       [Conway Cubes][9]       | :star: | :star: |
-|  10 |      [Encoding Error][10]     | :star: | :star: |
-|  11 |    [Ticket Translation][11]   | :star: | :star: |
-|  12 |     [Operation Order][12]     | :star: | :star: |
-|  13 | [Rambunctious Recitation][13] | :star: | :star: |
-|  14 |     [Monster Messages][14]    | :star: | :star: |
-|  15 |      [Adapter Array][15]      | :star: | :star: |
-|  16 |       [Docking Data][16]      | :star: | :star: |
-|  17 |     [Jurassic Jigsaw][17]     | :star: | :star: |
-|  18 |      [Seating System][18]     | :star: | :star: |
-|  19 |      [Shuttle Search][19]     | :star: | :star: |
-|  20 |        [Rain Risk][20]        | :star: | :star: |
+|  9  |      [Encoding Error][9]      | :star: | :star: |
+|  10 |      [Adapter Array][10]      | :star: | :star: |
+|  11 |      [Seating System][11]     | :star: | :star: |
+|  12 |        [Rain Risk][12]        | :star: | :star: |
+|  13 |      [Shuttle Search][13]     | :star: | :star: |
+|  14 |       [Docking Data][14]      | :star: | :star: |
+|  15 | [Rambunctious Recitation][15] | :star: | :star: |
+|  16 |    [Ticket Translation][16]   | :star: | :star: |
+|  17 |       [Conway Cubes][17]      | :star: | :star: |
+|  18 |     [Operation Order][18]     | :star: | :star: |
+|  19 |     [Monster Messages][19]    | :star: | :star: |
+|  20 |     [Jurassic Jigsaw][20]     | :star: | :star: |
 |  21 |         Coming soon...        |        |        |
 
 
@@ -46,15 +46,15 @@ npm run start <day-nr> <part-nr>
 [6]: https://adventofcode.com/2020/day/6
 [7]: https://adventofcode.com/2020/day/7
 [8]: https://adventofcode.com/2020/day/8
-[17]: https://adventofcode.com/2020/day/17
 [9]: https://adventofcode.com/2020/day/9
-[16]: https://adventofcode.com/2020/day/16
-[18]: https://adventofcode.com/2020/day/18
-[15]: https://adventofcode.com/2020/day/15
-[19]: https://adventofcode.com/2020/day/19
 [10]: https://adventofcode.com/2020/day/10
-[14]: https://adventofcode.com/2020/day/14
-[20]: https://adventofcode.com/2020/day/20
 [11]: https://adventofcode.com/2020/day/11
-[13]: https://adventofcode.com/2020/day/13
 [12]: https://adventofcode.com/2020/day/12
+[13]: https://adventofcode.com/2020/day/13
+[14]: https://adventofcode.com/2020/day/14
+[15]: https://adventofcode.com/2020/day/15
+[16]: https://adventofcode.com/2020/day/16
+[17]: https://adventofcode.com/2020/day/17
+[18]: https://adventofcode.com/2020/day/18
+[19]: https://adventofcode.com/2020/day/19
+[20]: https://adventofcode.com/2020/day/20
