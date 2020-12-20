@@ -19,8 +19,8 @@ export function add(a: number, b: number): number {
     return a + b
 }
 
-export function multiply(a: number, b: number): number {
-    return a * b
+export function multiply(a: any, b: any): number {
+    return parseInt(a) * parseInt(b)
 }
 
 export function asc(a: any, b: any): number {

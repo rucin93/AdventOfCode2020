@@ -20,10 +20,11 @@ Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScrip
 |  14 |     [Monster Messages][14]    | :star: | :star: |
 |  15 |      [Adapter Array][15]      | :star: | :star: |
 |  16 |       [Docking Data][16]      | :star: | :star: |
-|  17 |      [Seating System][17]     | :star: | :star: |
-|  18 |      [Shuttle Search][18]     | :star: | :star: |
-|  19 |        [Rain Risk][19]        | :star: | :star: |
-|  20 |         Coming soon...        |        |        |
+|  17 |     [Jurassic Jigsaw][17]     | :star: | :star: |
+|  18 |      [Seating System][18]     | :star: | :star: |
+|  19 |      [Shuttle Search][19]     | :star: | :star: |
+|  20 |        [Rain Risk][20]        | :star: | :star: |
+|  21 |         Coming soon...        |        |        |
 
 
 ## How to run?
@@ -53,6 +54,7 @@ npm run start <day-nr> <part-nr>
 [19]: https://adventofcode.com/2020/day/19
 [10]: https://adventofcode.com/2020/day/10
 [14]: https://adventofcode.com/2020/day/14
+[20]: https://adventofcode.com/2020/day/20
 [11]: https://adventofcode.com/2020/day/11
 [13]: https://adventofcode.com/2020/day/13
 [12]: https://adventofcode.com/2020/day/12
