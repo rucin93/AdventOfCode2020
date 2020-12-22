@@ -28,8 +28,8 @@ function unsafe(allergenList) {
 const foods = parseFood(entries)
 const allergens = parseAllergens(foods)
 const result = unsafe(allergens)
-  .sort((a, b) => (a.name < b.name ? -1 : a.name < b.name ? 1 : 0))
-  .map(allergen => allergen.ingredients[0])
-  .join(',')
+    .sort((a, b) => (a.name < b.name ? -1 : a.name < b.name ? 1 : 0))
+    .map(allergen => allergen.ingredients[0])
+    .join(',')
 
 console.log(result)

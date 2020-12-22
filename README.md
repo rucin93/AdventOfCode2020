@@ -25,7 +25,8 @@ Solutions for [Advent of Code 2020](https://adventofcode.com/2020/) in TypeScrip
 |  19 |     [Monster Messages][19]    | :star: | :star: |
 |  20 |     [Jurassic Jigsaw][20]     | :star: | :star: |
 |  21 |   [Allergen Assessment][21]   | :star: | :star: |
-|  22 |         Coming soon...        |        |        |
+|  22 |       [Crab Combat][22]       | :star: | :star: |
+|  23 |         Coming soon...        |        |        |
 
 
 ## How to run?
@@ -60,3 +61,4 @@ npm run start <day-nr> <part-nr>
 [19]: https://adventofcode.com/2020/day/19
 [20]: https://adventofcode.com/2020/day/20
 [21]: https://adventofcode.com/2020/day/21
+[22]: https://adventofcode.com/2020/day/22
